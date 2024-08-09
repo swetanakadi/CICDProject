@@ -15,8 +15,8 @@ COPY --chown=demo pyproject.toml constraints.txt ./
 RUN python -m pip install --upgrade pip setuptools && \
     python -m pip install --no-cache-dir -c constraints.txt ".[dev]"
 
-COPY --chown=demo src/ src/
-COPY --chown=demo test/ test/
+COPY --chown=demo src src/
+COPY --chown=demo test test/
 
 RUN python -m pip install . -c constraints.txt && \
     python -m pytest test/unit/ && \

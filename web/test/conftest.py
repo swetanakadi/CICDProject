@@ -1,7 +1,7 @@
 import pytest
 import redis
 
-from page_tracker.app import app
+from page_tracker import app
 
 
 def pytest_addoption(parser):
@@ -21,7 +21,7 @@ def redis_url(request):
 
 @pytest.fixture
 def http_client():
-    return app.test_client()
+    return app.app.test_client()
 
 
 @pytest.fixture(scope="module")
