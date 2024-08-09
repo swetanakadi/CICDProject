@@ -1,4 +1,4 @@
-FROM python:3.8.19-slim-bullseye AS builder
+FROM python:3.8.19-slim-bullseye
 
 RUN apt-get update && \
     apt-get upgrade --yes
@@ -24,8 +24,7 @@ RUN python -m pip install . -c constraints.txt && \
     python -m isort src/ --check && \
     python -m black src/ --check --quiet && \
     python -m pylint src/ --disable=C0114,C0116,R1705 && \
-    python -m bandit -r src/ --quiet && \
-    python -m pip wheel --wheel-dir dist/ . -c constraints.txt
+    python -m bandit -r src/ --quiet
 
 CMD ["flask", "--app", "page_tracker.app", "run", \
     "--host", "0.0.0.0", "--port", "5000"]
