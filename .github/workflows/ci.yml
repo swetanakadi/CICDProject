@@ -34,4 +34,4 @@ jobs:
         context: ./web
         push: true
         tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/page-tracker:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/swetan/page-tracker:4f3934b625ae6cf32d
