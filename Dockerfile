@@ -27,4 +27,5 @@ RUN python -m pip install . -c constraints.txt && \
     python -m bandit -r src/ --quiet && \
     python -m pip wheel --wheel-dir dist/ . -c constraints.txt
 
-
+CMD ["flask", "--app", "page_tracker.app", "run", \
+    "--host", "0.0.0.0", "--port", "5000"]
